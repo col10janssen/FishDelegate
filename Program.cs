@@ -3,6 +3,8 @@
 public interface IFish
 {
     Egg Lay();
+
+    IFish SpawnFish();
 }
 
 public class Egg
@@ -24,10 +26,10 @@ public class Tuna : IFish
 {
     public Egg Lay()
     {
-        return new Egg(SpawnTuna);
+        return new Egg(SpawnFish);
     }
 
-    private static IFish SpawnTuna()
+    public IFish SpawnFish()
     {
         return new Tuna();
     }
